@@ -104,9 +104,10 @@ if __name__ == '__main__':
     for browser in browsers:
         print "Found %s running, scanning processes...." % browser
         for pid in browsers[browser]:
+            matches = {}
             try:
                 matches = get_matches_of_pid(pid)
             except IOError:
                 continue
-        for service in matches:
-            print "Found service %s: %s" % (service, matches[service])
+            for service in matches:
+                print "Found service %s: %s" % (service, matches[service])
